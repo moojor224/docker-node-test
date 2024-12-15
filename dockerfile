@@ -11,4 +11,7 @@ RUN . ~/.bashrc && \
 
 COPY ./script.sh /
 COPY ./start.sh /
+
+RUN chmod +x /script.sh
+RUN chmod +x /start.sh
 # docker build -t docker-node-testing .
