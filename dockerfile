@@ -8,9 +8,11 @@ RUN apt-get update && \
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 RUN . ~/.bashrc && \
     nvm install 22
+RUN . ~/.bashrc && node -v && npm -v
 
 COPY ./script.sh /
 COPY ./start.sh /
+COPY ./js /app/js
 
 RUN chmod +x /script.sh
 RUN chmod +x /start.sh
