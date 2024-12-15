@@ -21,7 +21,7 @@ RUN chmod +x /start.sh
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # RUN useradd -m -s /bin/bash root
-RUN echo "root:password" | chpasswd
+# RUN echo "root:password" | chpasswd
 
 EXPOSE 22
 

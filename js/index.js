@@ -1,11 +1,3 @@
-const express = require("express");
-const app = express();
-const port = 3000;
+console.log("Node process is running. Press Ctrl+C to stop.");
 
-app.get("/", (req, res) => {
-    res.send("Hello World!");
-});
-
-app.listen(port, () => {
-    console.log(`app listening at port: ${port}`);
-});
+setInterval(() => { }, 1000);
