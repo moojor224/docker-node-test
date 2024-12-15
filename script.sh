@@ -1,6 +1,8 @@
 #!/bin/sh
 
-sudo . ~/.bashrc
+ls /bin
+
+. ~/.bashrc
 
 cd /
 # delete old backup
