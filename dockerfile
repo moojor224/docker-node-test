@@ -25,6 +25,6 @@ RUN echo "root:password" | chpasswd
 
 EXPOSE 22
 
-ENTRYPOINT service ssh start && bash
+# ENTRYPOINT service ssh start && bash
 
 # docker build -t docker-node-testing .
