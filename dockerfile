@@ -1,4 +1,4 @@
-FROM ubuntu AS intermediate
+FROM ubuntu:22.04 AS intermediate
 
 ARG REPO
 ENV REPO $REPO
