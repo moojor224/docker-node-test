@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-~/.bashrc
+sudo . ~/.bashrc
 
 cd /app/js
 npm i
