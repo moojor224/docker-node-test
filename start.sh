@@ -1,6 +1,4 @@
-#!/bin/bash
-
-ls /bin
+#!/bin/sh
 
 . ~/.bashrc
 

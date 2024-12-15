@@ -4,7 +4,7 @@ ARG REPO
 ENV REPO $REPO
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y git curl openssh-server
+    apt-get install -y git curl
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 RUN . ~/.bashrc && \
     nvm install 22
@@ -18,12 +18,12 @@ RUN chmod +x /script.sh
 RUN chmod +x /start.sh
 
 # enable ssh
-RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+# RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # RUN useradd -m -s /bin/bash root
 # RUN echo "root:password" | chpasswd
 
-EXPOSE 22
+# EXPOSE 22
 
 # ENTRYPOINT service ssh start && bash
 
