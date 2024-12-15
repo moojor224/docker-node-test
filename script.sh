@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd /
 # delete old backup
 rm -rf /app_old
