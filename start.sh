@@ -6,7 +6,4 @@ ls /bin
 
 cd /app/js
 npm i
-
-service ssh start
-
 npm run start
