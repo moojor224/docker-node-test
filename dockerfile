@@ -12,6 +12,7 @@ RUN . ~/.bashrc && node -v && npm -v
 
 COPY ./script.sh /
 COPY ./start.sh /
+COPY ./start_gitea.sh /home/gitea
 COPY ./js /app/js
 
 RUN chmod +x /script.sh
@@ -46,6 +47,8 @@ RUN systemctl enable gitea
 RUN systemctl start gitea
 RUN chmod 750 /etc/gitea
 RUN chown git:git /etc/gitea
+RUN chown git:git /home/gitea/start_gitea.sh
+RUN chmod +x /home/gitea/start_gitea.sh
 # RUN echo "#!bin/bash\nsystemctl enable gitea && systemctl start gitea\necho 'started gitea service'" >> /etc/rc.local
 # RUN chmod +x /etc/rc.local
 # RUN chmod 640 /etc/gitea/app.ini
