@@ -1,7 +1,7 @@
 FROM ubuntu:22.04 AS intermediate
 
 ARG REPO
-ENV REPO $REPO
+ENV REPO=$REPO
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y git curl wget
@@ -46,7 +46,7 @@ RUN systemctl enable gitea
 RUN systemctl start gitea
 RUN chmod 750 /etc/gitea
 RUN chown git:git /etc/gitea
-RUN echo "systemctl enable gitea && systemctl start gitea" >> /etc/rc.local
+RUN echo "#!bin/bash\n systemctl enable gitea && systemctl start gitea" >> /etc/rc.local
 # RUN chmod 640 /etc/gitea/app.ini
 
 # service ssh start
