@@ -1,33 +1,32 @@
-#!/bin/sh
+echo "add git user"
+adduser --system --shell /bin/bash --gecos 'Git Version Control' --group --disabled-password --home /home/git git
 
-. ~/.bashrc
+echo "make gitea folders"
+mkdir -p /var/lib/gitea/{custom,data,log}
+chown -R git:git /var/lib/gitea/
+chmod -R 750 /var/lib/gitea/
 
-cd /
-# delete old backup
-rm -rf /app_old
-# make backup
-mv /app /app_old
-# delete old folder
-rm -rf /app
+mkdir /etc/gitea
+chown root:git /etc/gitea
+chmod 770 /etc/gitea
 
-#get new repo url
-echo "Enter the url of a git repository: "
-read REPO
+echo "move gitea executable"
+cp gitea /usr/local/bin/gitea
 
-# check if repo url is valid
-git ls-remote "$REPO" > /dev/null 2>&1
-if [ "$?" -ne 0 ]; then
-    # display message
-    echo "[ERROR] '$REPO' is not a valid git repository"
-    # restore backup
-    mv /app_old /app
-    exit 1
-else
-    # clone repo
-    git clone "$REPO" app
-    # remove backup
-    rm -rf /app_old
-    # display message
-    echo "Cloned repository to /app"
-    exit 0
-fi
+echo "chown various things"
+chown git:git /etc/systemd/system/gitea.service
+chown git:git /usr/local/bin/gitea
+chown git:git /home/gitea/start_gitea.sh
+chown git:git /etc/gitea
+chown -R git:git /var/lib/gitea/
+
+echo "chmod various things"
+chmod +x /usr/local/bin/gitea
+chmod +x /home/gitea/start_gitea.sh
+chmod 750 /etc/gitea
+
+echo "start service"
+systemctl enable gitea
+systemctl start gitea
+
+echo "done"
