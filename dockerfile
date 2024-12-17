@@ -46,8 +46,8 @@ RUN systemctl enable gitea
 RUN systemctl start gitea
 RUN chmod 750 /etc/gitea
 RUN chown git:git /etc/gitea
-RUN echo "#!bin/bash\nsystemctl enable gitea && systemctl start gitea\nstarted gitea service" >> /etc/rc.local
-RUN chmod +x /etc/rc.local
+# RUN echo "#!bin/bash\nsystemctl enable gitea && systemctl start gitea\necho 'started gitea service'" >> /etc/rc.local
+# RUN chmod +x /etc/rc.local
 # RUN chmod 640 /etc/gitea/app.ini
 
 # service ssh start
