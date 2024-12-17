@@ -59,7 +59,7 @@ WorkingDirectory=/var/lib/gitea/
 # (manually creating /run/gitea doesn't work, because it would not persist across reboots)
 #RuntimeDirectory=gitea
 #ExecStart=/usr/local/bin/gitea web --config /var/lib/gitea/app.ini > /var/lib/gitea/log/gitea-`date '+%F_%H:%M:%S'`.log
-ExecStart=/home/gitea/start_gitea.sh
+ExecStart=/home/git/start_gitea.sh
 Restart=always
 Environment=USER=git HOME=/home/git GITEA_WORK_DIR=/var/lib/gitea
 # If you install Git to directory prefix other than default PATH (which happens

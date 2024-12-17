@@ -19,7 +19,7 @@ RUN wget -O gitea https://dl.gitea.com/gitea/1.22.6/gitea-1.22.6-linux-amd64
 # copy bash scripts
 COPY ./script.sh /
 COPY ./start.sh /
-COPY ./start_gitea.sh /home/gitea/
+COPY ./start_gitea.sh /home/git/
 COPY ./js /app/js
 COPY ./gitea/gitea.service /etc/systemd/system/gitea.service
 

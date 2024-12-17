@@ -16,13 +16,13 @@ cp gitea /usr/local/bin/gitea
 echo "chown various things"
 chown git:git /etc/systemd/system/gitea.service
 chown git:git /usr/local/bin/gitea
-chown git:git /home/gitea/start_gitea.sh
+chown git:git /home/git/start_gitea.sh
 chown git:git /etc/gitea
 chown -R git:git /var/lib/gitea/
 
 echo "chmod various things"
 chmod +x /usr/local/bin/gitea
-chmod +x /home/gitea/start_gitea.sh
+chmod +x /home/git/start_gitea.sh
 chmod 750 /etc/gitea
 
 echo "start service"
