@@ -1,8 +1,13 @@
 echo "add git user"
 adduser --system --shell /bin/bash --gecos 'Git Version Control' --group --disabled-password --home /home/git git
 
+mv /start_gitea.sh /home/git/start_gitea.sh
+chown git:git /home/git/start_gitea.sh
+
 echo "make gitea folders"
-mkdir -p /var/lib/gitea/{custom,data,log}
+mkdir -p /var/lib/gitea/custom
+mkdir -p /var/lib/gitea/data
+mkdir -p /var/lib/gitea/log
 chown -R git:git /var/lib/gitea/
 chmod -R 750 /var/lib/gitea/
 
@@ -26,7 +31,7 @@ chmod +x /home/git/start_gitea.sh
 chmod 750 /etc/gitea
 
 mkdir -p /etc/sudoers.d
-cat "%git ALL= NOPASSWD" > /etc/sudoers.d/git
+echo "git ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/git
 
 echo "start service"
 systemctl enable gitea
