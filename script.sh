@@ -25,6 +25,9 @@ chmod +x /usr/local/bin/gitea
 chmod +x /home/git/start_gitea.sh
 chmod 750 /etc/gitea
 
+mkdir -p /etc/sudoers.d
+cat "%git ALL= NOPASSWD" > /etc/sudoers.d/git
+
 echo "start service"
 systemctl enable gitea
 systemctl start gitea
